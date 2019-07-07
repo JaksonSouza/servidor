@@ -24,6 +24,17 @@ if nextUseXpStamina == nil then
 	nextUseXpStamina = {}
 end
 
+
+
+function contains(array, value)
+	for i, n in pairs(array) do
+    	if i == value then
+			return true
+		end
+	end
+	return false
+end
+
 --Boss entry
 if not bosssPlayers then
 	bosssPlayers = {

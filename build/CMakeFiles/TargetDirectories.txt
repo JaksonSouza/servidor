@@ -1,0 +1,8 @@
+/mnt/c/Users/Jakson/Desktop/servidor/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Jakson/Desktop/servidor/build/CMakeFiles/tfs.dir
+/mnt/c/Users/Jakson/Desktop/servidor/build/CMakeFiles/clean_cotire.dir
+/mnt/c/Users/Jakson/Desktop/servidor/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Jakson/Desktop/servidor/build/CMakeFiles/tfs_pch.dir
+/mnt/c/Users/Jakson/Desktop/servidor/build/CMakeFiles/all_pch.dir
+/mnt/c/Users/Jakson/Desktop/servidor/build/src/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Jakson/Desktop/servidor/build/src/CMakeFiles/rebuild_cache.dir
