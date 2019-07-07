@@ -19,7 +19,7 @@ function pokemonGo(player, pokeName, pokeId, ballType)
 	poke:setHealth(health)
 	poke:setMaster(player)
 	poke:setFollowCreature(poke:getMaster())
-	poke:setName(pokeName,pokeName..". Pertence a "..player:getName())
+	--poke:setName(pokeName,pokeName..". Pertence a "..player:getName())
 	poke:getPosition():sendMagicEffect(balls[ballType].goback)
 	player:say(pokeName..", eu escolho você!", TALKTYPE_ORANGE_1)
     
