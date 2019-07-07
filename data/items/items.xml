@@ -21387,4 +21387,41 @@
 	<item id="20028" name="swamp" />
 	<item id="20035" name="tea" />
 	<item id="20043" name="mead" />
+	<item id="12660" article="a" name="Poke Ball" />
+	<item id="12661" article="a" name="Great Ball" />
+	<item id="12662" article="a" name="Super Ball" />
+	<item id="12663" article="a" name="Ultra Ball" />
+	<item id="12664" article="a" name="pokeball on">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12665" article="a" name="pokeball off">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12666" article="a" name="greatball on">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12667" article="uma" name="greatball off">
+		<attribute key="slotType" value="feet" />
+	</item>
+		<item id="12668" article="a" name="superball on">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12669" article="uma" name="superball off">
+		<attribute key="slotType" value="feet" />
+	</item>
+		<item id="12670" article="a" name="ultraball on">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12671" article="uma" name="ultraball off">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12672" article="uma" name="bulbasaur on">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12673" article="uma" name="bulbasaur use">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12674" article="uma" name="bulbasaur off">
+		<attribute key="slotType" value="feet" />
+	</item>
 </items>

@@ -39,7 +39,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
    				elseif ballType == 26385 then --ultraball
    					ultraBall=1
    				end
- 				db.query("INSERT INTO `balls` (`player_id`,`key`,`Poke Ball`,`greatball`,`superball`,`ultraball`) VALUES ("..playerId..","..target:getId()..","..pokeBall..","..greatBall..","..superBall..","..ultraBall..");")
+ 				db.query("INSERT INTO `balls` (`player_id`,`key`,`Poke Ball`,`Great Ball`,`Super Ball`,`Ultra Ball`) VALUES ("..playerId..","..target:getId()..","..pokeBall..","..greatBall..","..superBall..","..ultraBall..");")
    			end
         
     		pokeBall = result.getDataInt(db.storeQuery("SELECT `Poke Ball` from balls where `player_id`="..playerId.." and `key`= "..target:getId()..";"), "Poke Ball")
