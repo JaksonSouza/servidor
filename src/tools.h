@@ -29,6 +29,7 @@
 typedef std::vector<std::pair<uint32_t, uint32_t>> IPList;
 
 void printXMLError(const std::string& where, const std::string& fileName, const pugi::xml_parse_result& result);
+uint32_t ballEffect(uint32_t ballType);
 
 std::string transformToSHA1(const std::string& input);
 

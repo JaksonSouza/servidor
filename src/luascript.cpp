@@ -1849,6 +1849,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Game", "createItem", LuaScriptInterface::luaGameCreateItem);
 	registerMethod("Game", "createContainer", LuaScriptInterface::luaGameCreateContainer);
 	registerMethod("Game", "createMonster", LuaScriptInterface::luaGameCreateMonster);
+	registerMethod("Game", "pokemonGo", LuaScriptInterface::luaGamePokemonGo);
 	registerMethod("Game", "createNpc", LuaScriptInterface::luaGameCreateNpc);
 	registerMethod("Game", "createTile", LuaScriptInterface::luaGameCreateTile);
 
@@ -4114,6 +4115,59 @@ int LuaScriptInterface::luaGameCreateMonster(lua_State* L)
 		pushUserdata<Monster>(L, monster);
 		setMetatable(L, -1, "Monster");
 	} else {
+		delete monster;
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaGamePokemonGo(lua_State* L)
+{   
+    Player* player = getPlayer(L, 1);
+	uint16_t pokeId = getNumber<uint16_t>(L, 2);
+	Item* item = getUserdata<Item>(L, 3);
+	bool extended = getBoolean(L, 4, false);
+	bool force = getBoolean(L, 5, false);
+
+    std::ostringstream query;
+    Database& db = Database::getInstance();
+
+    query << "SELECT `name`,`ballType`,`health` FROM `pokemon` WHERE `id` = " << pokeId;
+	DBResult_ptr result = db.storeQuery(query.str());
+    
+    if (!result) {
+		return false;
+	}
+
+	const std::string& name = result->getString("name");
+
+	Monster* monster;
+    monster = Monster::createMonster(name);
+
+    if (!monster) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+    uint32_t ballType = result->getNumber<uint32_t>("ballType");
+    uint32_t effect = ballEffect(ballType);
+    uint32_t health = result->getNumber<uint32_t>("health");
+    const Position& position = player->getPosition();
+
+    monster->setMaster(player);
+	monster->health = std::min<int32_t>(health, monster->healthMax);
+	g_game.addCreatureHealth(monster);
+	g_game.internalCreatureSay(player, TALKTYPE_MONSTER_SAY, name+" eu escolho voce!", false);
+	g_game.transformItem(item, 12673);
+	//monster->setName();
+	player->addStorageValue(10000, 1);
+
+	if (g_game.placeCreature(monster, position, extended, force)) {
+		pushUserdata<Monster>(L, monster);
+		setMetatable(L, -1, "Monster");
+		g_game.addMagicEffect(monster->getPosition(), effect);
+
+	}else {
 		delete monster;
 		lua_pushnil(L);
 	}
