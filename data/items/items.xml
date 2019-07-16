@@ -9670,10 +9670,6 @@
 	</item>
 	<item id="5973" article="a" name="dead dragon">
 		<attribute key="containerSize" value="15" />
-		<attribute key="decayTo" value="3104" />
-		<attribute key="duration" value="10" />
-		<attribute key="corpseType" value="blood" />
-		<attribute key="fluidSource" value="blood" />
 	</item>
 	<item id="5974" article="a" name="dead spider">
 		<attribute key="containerSize" value="5" />

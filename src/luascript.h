@@ -547,6 +547,7 @@ class LuaScriptInterface
 		static int luaGameCreateContainer(lua_State* L);
 		static int luaGameCreateMonster(lua_State* L);
 		static int luaGamePokemonGo(lua_State* L);
+		static int luaGamePokemonBack(lua_State* L);
 		static int luaGameCreateNpc(lua_State* L);
 		static int luaGameCreateTile(lua_State* L);
 

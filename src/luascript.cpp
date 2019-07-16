@@ -1850,6 +1850,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Game", "createContainer", LuaScriptInterface::luaGameCreateContainer);
 	registerMethod("Game", "createMonster", LuaScriptInterface::luaGameCreateMonster);
 	registerMethod("Game", "pokemonGo", LuaScriptInterface::luaGamePokemonGo);
+	registerMethod("Game", "pokemonBack", LuaScriptInterface::luaGamePokemonBack);
 	registerMethod("Game", "createNpc", LuaScriptInterface::luaGameCreateNpc);
 	registerMethod("Game", "createTile", LuaScriptInterface::luaGameCreateTile);
 
@@ -4126,8 +4127,9 @@ int LuaScriptInterface::luaGamePokemonGo(lua_State* L)
     Player* player = getPlayer(L, 1);
 	uint16_t pokeId = getNumber<uint16_t>(L, 2);
 	Item* item = getUserdata<Item>(L, 3);
-	bool extended = getBoolean(L, 4, false);
-	bool force = getBoolean(L, 5, false);
+	uint16_t idBallUse = getNumber<uint16_t>(L, 4);
+	bool extended = getBoolean(L, 5, false);
+	bool force = getBoolean(L, 6, false);
 
     std::ostringstream query;
     Database& db = Database::getInstance();
@@ -4157,8 +4159,8 @@ int LuaScriptInterface::luaGamePokemonGo(lua_State* L)
     monster->setMaster(player);
 	monster->health = std::min<int32_t>(health, monster->healthMax);
 	g_game.addCreatureHealth(monster);
-	g_game.internalCreatureSay(player, TALKTYPE_MONSTER_SAY, name+" eu escolho voce!", false);
-	g_game.transformItem(item, 12673);
+	g_game.internalCreatureSay(player, TALKTYPE_MONSTER_SAY, name+", eu escolho você!", false);
+	g_game.transformItem(item, idBallUse);
 	//monster->setName();
 	player->addStorageValue(10000, 1);
 
@@ -4170,6 +4172,41 @@ int LuaScriptInterface::luaGamePokemonGo(lua_State* L)
 	}else {
 		delete monster;
 		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaGamePokemonBack(lua_State* L)
+{   
+    Player* player = getPlayer(L, 1);
+	uint16_t pokeId = getNumber<uint16_t>(L, 2);
+	Item* item = getUserdata<Item>(L, 3);
+	uint16_t idBallOn = getNumber<uint16_t>(L, 4);
+
+    std::ostringstream query;
+ 
+    Database& db = Database::getInstance();
+    query << "SELECT `ballType` FROM `pokemon` WHERE `id` = " << pokeId;
+	DBResult_ptr result = db.storeQuery(query.str());
+	query.str(std::string());
+    
+    if (!result) {
+		return false;
+    }
+
+    uint32_t ballType = result->getNumber<uint32_t>("ballType");
+    uint32_t effect = ballEffect(ballType);
+
+	g_game.transformItem(item, idBallOn);
+	player->addStorageValue(10000, -1);
+
+	for(Creature* summon : player->getSummons()){
+		query << "UPDATE `pokemon` SET `health` = " << summon->getHealth() << " WHERE `id` = " << pokeId;
+		db.executeQuery(query.str());
+		g_game.internalCreatureSay(player, TALKTYPE_MONSTER_SAY, summon->getName()+", volte!", false);
+		g_game.addMagicEffect(summon->getPosition(), effect);
+		g_game.removeCreature(summon);
+		return 1;
 	}
 	return 1;
 }
