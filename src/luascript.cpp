@@ -1851,6 +1851,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Game", "createMonster", LuaScriptInterface::luaGameCreateMonster);
 	registerMethod("Game", "pokemonGo", LuaScriptInterface::luaGamePokemonGo);
 	registerMethod("Game", "pokemonBack", LuaScriptInterface::luaGamePokemonBack);
+	registerMethod("Game", "pokemonCatch", LuaScriptInterface::luaGamePokemonCatch);
 	registerMethod("Game", "createNpc", LuaScriptInterface::luaGameCreateNpc);
 	registerMethod("Game", "createTile", LuaScriptInterface::luaGameCreateTile);
 
@@ -4152,14 +4153,14 @@ int LuaScriptInterface::luaGamePokemonGo(lua_State* L)
 	}
 
     uint32_t ballType = result->getNumber<uint32_t>("ballType");
-    uint32_t effect = ballEffect(ballType);
+    uint32_t effect = ballEffect(ballType).goback;
     uint32_t health = result->getNumber<uint32_t>("health");
     const Position& position = player->getPosition();
 
     monster->setMaster(player);
 	monster->health = std::min<int32_t>(health, monster->healthMax);
 	g_game.addCreatureHealth(monster);
-	g_game.internalCreatureSay(player, TALKTYPE_MONSTER_SAY, name+", eu escolho você!", false);
+	g_game.internalCreatureSay(player, TALKTYPE_MONSTER_SAY, name+", eu escolho vocÃª!", false);
 	g_game.transformItem(item, idBallUse);
 	//monster->setName();
 	player->addStorageValue(10000, 1);
@@ -4195,7 +4196,7 @@ int LuaScriptInterface::luaGamePokemonBack(lua_State* L)
     }
 
     uint32_t ballType = result->getNumber<uint32_t>("ballType");
-    uint32_t effect = ballEffect(ballType);
+    uint32_t effect = ballEffect(ballType).goback;
 
 	g_game.transformItem(item, idBallOn);
 	player->addStorageValue(10000, -1);
@@ -4208,6 +4209,44 @@ int LuaScriptInterface::luaGamePokemonBack(lua_State* L)
 		g_game.removeCreature(summon);
 		return 1;
 	}
+	return 1;
+}
+
+int LuaScriptInterface::luaGamePokemonCatch(lua_State* L)
+{
+	Player* player = getPlayer(L, 1);
+	uint16_t ballType = getNumber<uint16_t>(L, 2);
+	uint16_t pokeRate = getNumber<uint16_t>(L, 3);
+	uint16_t iconOn = getNumber<uint16_t>(L, 4);
+	Thing* target = getThing(L, 5);
+    
+	uint16_t luck = normal_random(1, 1000);
+	uint16_t rate = (pokeRate*ballEffect(ballType).rate);
+
+	if(luck >= 1 && luck <= rate){
+	
+		//Item* item = Item::CreateItem(iconOn, 1);
+		//g_game.internalPlayerAddItem(player, item);
+		g_game.addMagicEffect(target->getPosition(), ballEffect(ballType).sucess);
+		g_game.internalCreatureSay(player, TALKTYPE_MONSTER_SAY, " sucess ", false);
+    
+    }else{
+        Item* item = Item::CreateItem(iconOn, 1);
+
+	    //g_scheduler.addEvent(createSchedulerTask(1000, std::bind(&Game::internalPlayerAddItem, &g_game, player, item)));
+	    SchedulerTask* task = createSchedulerTask(4000, std::bind(&Game::internalPlayerAddItem, &g_game, player, item, true, CONST_SLOT_WHEREEVER));
+        g_scheduler.addEvent(task);
+
+      
+
+        g_game.addMagicEffect(target->getPosition(), ballEffect(ballType).fail);
+    	g_game.internalCreatureSay(player, TALKTYPE_MONSTER_SAY, " fail ", false);
+
+
+    		
+    	
+    }
+			
 	return 1;
 }
 
@@ -6049,8 +6088,9 @@ int LuaScriptInterface::luaItemRemoveCustomAttribute(lua_State* L) {
 
 int LuaScriptInterface::luaItemMoveTo(lua_State* L)
 {
-	// item:moveTo(position or cylinder[, flags])
-	Item** itemPtr = getRawUserdata<Item>(L, 1);
+	Item* test = Item::CreateItem(2550, 1);
+	Item** itemPtr = &test;
+
 	if (!itemPtr) {
 		lua_pushnil(L);
 		return 1;
@@ -6063,24 +6103,24 @@ int LuaScriptInterface::luaItemMoveTo(lua_State* L)
 	}
 
 	Cylinder* toCylinder;
-	if (isUserdata(L, 2)) {
-		const LuaDataType type = getUserdataType(L, 2);
+	if (isUserdata(L, 1)) {
+		const LuaDataType type = getUserdataType(L, 1);
 		switch (type) {
 			case LuaData_Container:
-				toCylinder = getUserdata<Container>(L, 2);
+				toCylinder = getUserdata<Container>(L, 1);
 				break;
 			case LuaData_Player:
-				toCylinder = getUserdata<Player>(L, 2);
+				toCylinder = getUserdata<Player>(L, 1);
 				break;
 			case LuaData_Tile:
-				toCylinder = getUserdata<Tile>(L, 2);
+				toCylinder = getUserdata<Tile>(L, 1);
 				break;
 			default:
 				toCylinder = nullptr;
 				break;
 		}
 	} else {
-		toCylinder = g_game.map.getTile(getPosition(L, 2));
+		toCylinder = g_game.map.getTile(getPosition(L, 1));
 	}
 
 	if (!toCylinder) {
@@ -6093,7 +6133,7 @@ int LuaScriptInterface::luaItemMoveTo(lua_State* L)
 		return 1;
 	}
 
-	uint32_t flags = getNumber<uint32_t>(L, 3, FLAG_NOLIMIT | FLAG_IGNOREBLOCKITEM | FLAG_IGNOREBLOCKCREATURE | FLAG_IGNORENOTMOVEABLE);
+	uint32_t flags = getNumber<uint32_t>(L, 2, FLAG_NOLIMIT | FLAG_IGNOREBLOCKITEM | FLAG_IGNOREBLOCKCREATURE | FLAG_IGNORENOTMOVEABLE);
 
 	if (item->getParent() == VirtualCylinder::virtualCylinder) {
 		pushBoolean(L, g_game.internalAddItem(toCylinder, item, INDEX_WHEREEVER, flags) == RETURNVALUE_NOERROR);

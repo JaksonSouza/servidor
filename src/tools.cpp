@@ -78,14 +78,20 @@ static uint32_t circularShift(int bits, uint32_t value)
 	return (value << bits) | (value >> (32 - bits));
 }
 
-uint32_t ballEffect(uint32_t ballType){
-	uint32_t effect;
+ball ballEffect(uint32_t ballType){
+	
+	ball x;
+
 	switch(ballType){
-	  	case 12660:
-	  		effect = 71;
+	  	case 12660: //poke ball
+	  		x.goback = 71;
+	  		x.sucess = 72;
+	  		x.fail = 73;
+	  		x.rate = 0.1;
   	break;
 	}
-	return effect;
+
+	return x;
 }
 
 static void processSHA1MessageBlock(const uint8_t* messageBlock, uint32_t* H)

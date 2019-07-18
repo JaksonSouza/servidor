@@ -650,6 +650,7 @@ class Item : virtual public Thing
 		void resetText() {
 			removeAttribute(ITEM_ATTRIBUTE_TEXT);
 		}
+
 		const std::string& getText() const {
 			return getStrAttr(ITEM_ATTRIBUTE_TEXT);
 		}

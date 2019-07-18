@@ -1,0 +1,97 @@
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  "CXX"
+  )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/actions.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/actions.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/ban.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/ban.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/baseevents.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/baseevents.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/bed.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/bed.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/chat.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/chat.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/combat.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/combat.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/condition.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/condition.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/configmanager.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/configmanager.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/connection.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/connection.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/container.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/container.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/creature.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/creature.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/creatureevent.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/creatureevent.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/cylinder.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/cylinder.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/database.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/database.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/databasemanager.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/databasemanager.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/databasetasks.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/databasetasks.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/depotchest.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/depotchest.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/depotlocker.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/depotlocker.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/events.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/events.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/fileloader.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/fileloader.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/game.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/game.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/globalevent.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/globalevent.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/groups.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/groups.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/guild.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/guild.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/house.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/house.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/housetile.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/housetile.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/ioguild.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/ioguild.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/iologindata.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/iologindata.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/iomap.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/iomap.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/iomapserialize.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/iomapserialize.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/item.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/item.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/items.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/items.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/luascript.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/luascript.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/mailbox.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/mailbox.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/map.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/map.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/monster.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/monster.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/monsters.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/monsters.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/movement.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/movement.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/networkmessage.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/networkmessage.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/npc.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/npc.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/otpch.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/otpch.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/otserv.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/otserv.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/outfit.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/outfit.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/outputmessage.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/outputmessage.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/party.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/party.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/player.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/player.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/position.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/position.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/protocol.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/protocol.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/protocolgame.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/protocolgame.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/protocollogin.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/protocollogin.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/protocolold.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/protocolold.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/protocolstatus.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/protocolstatus.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/quests.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/quests.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/raids.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/raids.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/reward.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/reward.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/rewardchest.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/rewardchest.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/rsa.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/rsa.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/scheduler.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/scheduler.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/scriptmanager.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/scriptmanager.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/server.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/server.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/signals.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/signals.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/spawn.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/spawn.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/spells.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/spells.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/talkaction.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/talkaction.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/tasks.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/tasks.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/teleport.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/teleport.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/thing.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/thing.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/tile.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/tile.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/tools.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/tools.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/trashholder.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/trashholder.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/vocation.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/vocation.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/waitlist.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/waitlist.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/weapons.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/weapons.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/wildcardtree.cpp" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/CMakeFiles/tfs.dir/src/wildcardtree.cpp.o"
+  "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/cotire/tfs_CXX_prefix.hxx" "/mnt/c/Users/Jakson/Desktop/servidor original/servidor/build/cotire/tfs_CXX_prefix.hxx.gch"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
+
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/include/mysql"
+  "/usr/include/lua5.2"
+  "/usr/include/x86_64-linux-gnu"
+  )
+
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")
