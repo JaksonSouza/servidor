@@ -4219,32 +4219,41 @@ int LuaScriptInterface::luaGamePokemonCatch(lua_State* L)
 	uint16_t pokeRate = getNumber<uint16_t>(L, 3);
 	uint16_t iconOn = getNumber<uint16_t>(L, 4);
 	Thing* target = getThing(L, 5);
+	std::string pokeName = getString(L, 6);
+	uint16_t healthMax = getNumber<uint16_t>(L, 7);
+
+	Item* corpse = target->getItem();
     
+	std::ostringstream query;
+ 
+    Database& db = Database::getInstance();
+    query << "select max(id) from pokemon;";
+	DBResult_ptr result = db.storeQuery(query.str());
+	query.str(std::string());
+    
+    if (!result) {
+		return false;
+    }
+
+    uint32_t lastId = result->getNumber<uint32_t>("max(id)");
 	uint16_t luck = normal_random(1, 1000);
 	uint16_t rate = (pokeRate*ballEffect(ballType).rate);
 
 	if(luck >= 1 && luck <= rate){
-	
-		//Item* item = Item::CreateItem(iconOn, 1);
-		//g_game.internalPlayerAddItem(player, item);
-		g_game.addMagicEffect(target->getPosition(), ballEffect(ballType).sucess);
-		g_game.internalCreatureSay(player, TALKTYPE_MONSTER_SAY, " sucess ", false);
-    
-    }else{
-        Item* item = Item::CreateItem(iconOn, 1);
+        query << "INSERT INTO `pokemon` (`id`,`name`,`nickName`,`ballType`,`health`,`healthMax`,`corpse`) VALUES (null,'"<<pokeName<<"','"<<pokeName<<"','"<<ballType<<"','"<<healthMax<<"','"<<healthMax<<"','"<<corpse->getID()<<"');";
+        db.executeQuery(query.str());
 
-	    //g_scheduler.addEvent(createSchedulerTask(1000, std::bind(&Game::internalPlayerAddItem, &g_game, player, item)));
-	    SchedulerTask* task = createSchedulerTask(4000, std::bind(&Game::internalPlayerAddItem, &g_game, player, item, true, CONST_SLOT_WHEREEVER));
+        Item* item = Item::CreateItem(iconOn, 1);
+        item->setIntAttr(ITEM_ATTRIBUTE_ATTACK, lastId+1);
+		g_game.addMagicEffect(target->getPosition(), ballEffect(ballType).sucess);
+
+		SchedulerTask* task = createSchedulerTask(4000, std::bind(&Game::internalPlayerAddItem, &g_game, player, item, true, CONST_SLOT_WHEREEVER));
         g_scheduler.addEvent(task);
 
-      
-
+        player->sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE,corpse->getName());
+    }else{
         g_game.addMagicEffect(target->getPosition(), ballEffect(ballType).fail);
-    	g_game.internalCreatureSay(player, TALKTYPE_MONSTER_SAY, " fail ", false);
-
-
-    		
-    	
+        player->sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE,"fail");		
     }
 			
 	return 1;

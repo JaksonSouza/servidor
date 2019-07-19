@@ -8,7 +8,13 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
       return true
   end
 
-  Game.pokemonCatch(player,12660,200,2550,target)
+  ballType = item:getId()
+  pokeName = pokes[target:getId()].name
+  rate = pokes[target:getId()].rate
+  iconOn = pokes[target:getId()].on
+  healthmax = pokes[target:getId()].healthmax
+
+  Game.pokemonCatch(player,ballType,rate,iconOn,target,pokeName,healthmax)
 
   return true		
 end
