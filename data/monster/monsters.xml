@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monsters>
-	<monster name="Bulbasaur" file="Dragons/bulbasaur.xml"/>
-	<monster name="Charmander" file="Dragons/charmander.xml"/>
-	<monster name="Squirtle" file="Dragons/squirtle.xml"/>
+	<monster name="Bulbasaur" file="pokes/bulbasaur.xml"/>
+	<monster name="Charmander" file="pokes/charmander.xml"/>
+	<monster name="Squirtle" file="pokes/squirtle.xml"/>
 </monsters>
