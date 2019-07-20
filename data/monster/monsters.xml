@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monsters>
-
-	<!-- Dragons -->
-	<monster name="Dragon Lord" file="Dragons/dragon lord.xml"/>
-	<monster name="Dragon" file="Dragons/dragon.xml"/>
 	<monster name="Bulbasaur" file="Dragons/bulbasaur.xml"/>
 	<monster name="Charmander" file="Dragons/charmander.xml"/>
 	<monster name="Squirtle" file="Dragons/squirtle.xml"/>
-	
 </monsters>
