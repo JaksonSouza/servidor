@@ -21420,4 +21420,31 @@
 	<item id="12674" article="uma" name="bulbasaur off">
 		<attribute key="slotType" value="feet" />
 	</item>
+	<item id="12675" article="uma" name="charmander on">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12676" article="uma" name="charmander use">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12677" article="uma" name="charmander off">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12678" article="uma" name="squirtle on">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12679" article="uma" name="squirtle use">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12680" article="uma" name="squirtle off">
+		<attribute key="slotType" value="feet" />
+	</item>
+	<item id="12681" article="a" name="dead bulbasaur">
+		<attribute key="containerSize" value="15" />
+	</item>
+	<item id="12682" article="a" name="dead charmander">
+		<attribute key="containerSize" value="15" />
+	</item>
+	<item id="12683" article="a" name="dead squirtle">
+		<attribute key="containerSize" value="15" />
+	</item>
 </items>

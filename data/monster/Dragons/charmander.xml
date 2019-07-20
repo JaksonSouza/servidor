@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Dragon" nameDescription="a dragon" race="blood" experience="700" speed="180" manacost="0">
+<monster name="Charmander" nameDescription="a charmander" race="blood" experience="700" speed="180" manacost="0">
 	<health now="1000" max="1000"/>
-	<look type="34" corpse="5973"/>
+	<look type="371" corpse="12682"/>
 	<targetchange interval="5000" chance="8"/>
 	<strategy attack="100" defense="0"/>
 	<flags>
