@@ -1852,6 +1852,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Game", "pokemonGo", LuaScriptInterface::luaGamePokemonGo);
 	registerMethod("Game", "pokemonBack", LuaScriptInterface::luaGamePokemonBack);
 	registerMethod("Game", "pokemonCatch", LuaScriptInterface::luaGamePokemonCatch);
+	registerMethod("Game", "ballGetAttr", LuaScriptInterface::luaGameBallGetAttr);
 	registerMethod("Game", "createNpc", LuaScriptInterface::luaGameCreateNpc);
 	registerMethod("Game", "createTile", LuaScriptInterface::luaGameCreateTile);
 
@@ -4245,18 +4246,52 @@ int LuaScriptInterface::luaGamePokemonCatch(lua_State* L)
 
         Item* item = Item::CreateItem(iconOn, 1);
         item->setIntAttr(ITEM_ATTRIBUTE_ATTACK, lastId+1);
+        item->setIntAttr(ITEM_ATTRIBUTE_DEFENSE, corpse->getID());
+        //item->setIntAttr(ITEM_ATTRIBUTE_EXTRADEFENSE, ballType);
+
 		g_game.addMagicEffect(target->getPosition(), ballEffect(ballType).sucess);
 
 		SchedulerTask* task = createSchedulerTask(4000, std::bind(&Game::internalPlayerAddItem, &g_game, player, item, true, CONST_SLOT_WHEREEVER));
         g_scheduler.addEvent(task);
 
-        player->sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE,corpse->getName());
+        player->sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE,"sucess");
     }else{
         g_game.addMagicEffect(target->getPosition(), ballEffect(ballType).fail);
         player->sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE,"fail");		
     }
 			
 	return 1;
+}
+
+int LuaScriptInterface::luaGameBallGetAttr(lua_State* L)
+{
+	uint16_t pokeId = getNumber<uint16_t>(L, 1);
+	std::string stringType = getString(L, 2);
+
+	std::ostringstream query;
+ 
+    Database& db = Database::getInstance();
+    query << "SELECT `ballType` FROM `pokemon` WHERE `id` = " << pokeId;
+	DBResult_ptr result = db.storeQuery(query.str());
+	query.str(std::string());
+    
+    if (!result) {
+		return false;
+    }
+
+    uint32_t ballType = result->getNumber<uint32_t>("ballType");
+
+    uint32_t x;
+
+    if(stringType=="on"){
+    	x = ballEffect(ballType).on;
+    }else if(stringType=="off"){
+        x = ballEffect(ballType).off;
+    }
+
+    lua_pushnumber(L, x);
+
+    return 1;	
 }
 
 int LuaScriptInterface::luaGameCreateNpc(lua_State* L)

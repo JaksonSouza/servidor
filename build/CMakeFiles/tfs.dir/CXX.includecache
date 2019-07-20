@@ -709,6 +709,8 @@ lua.hpp
 -
 database.h
 /mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/database.h
+tools.h
+/mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/tools.h
 enums.h
 /mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/enums.h
 position.h

@@ -110,30 +110,29 @@ function Player:onLookInShop(itemType, count)
 end
 
 function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
-local pokeId = item:getAttribute("attack")
-	local index = result.getDataInt(db.storeQuery("SELECT `index` from pokemon where id = ".. pokeId ..";"), "index")
+    
+    local pokeId = item:getAttribute("attack")
+	local corpse = item:getAttribute("defense")
+	--local ball = item:getAttribute("defense")
 
-	if contains(pokes,index) == true then
-		local ballType = result.getDataInt(db.storeQuery("SELECT `ballType` from pokemon where id = ".. pokeId ..";"), "ballType")
-		if item:getId() ~= pokes[index].use then
+	if contains(pokes,corpse) == true then
+		if item:getId() ~= pokes[corpse].use then
 
-			if item:getId() == pokes[index].on and  toPosition.x ~= CONTAINER_POSITION then
-				item:transform(balls[ballType].on)
+			if item:getId() == pokes[corpse].on and  toPosition.x ~= CONTAINER_POSITION then
+				item:transform(Game.ballGetAttr(pokeId,"on"))
 
-			elseif item:getId() == balls[ballType].on and toPosition.x == CONTAINER_POSITION then
-				item:transform(pokes[index].on)
+			elseif item:getId() == Game.ballGetAttr(pokeId,"on") and toPosition.x == CONTAINER_POSITION then
+				item:transform(pokes[corpse].on)
 
-			elseif item:getId() == pokes[index].off and  toPosition.x ~= CONTAINER_POSITION then
-				item:transform(balls[ballType].off)
+			elseif item:getId() == pokes[corpse].off and  toPosition.x ~= CONTAINER_POSITION then
+				item:transform(Game.ballGetAttr(pokeId,"off"))
 			
-			elseif item:getId() == balls[ballType].off and toPosition.x == CONTAINER_POSITION then
-				item:transform(pokes[index].off)
+			elseif item:getId() == Game.ballGetAttr(pokeId,"off") and toPosition.x == CONTAINER_POSITION then
+				item:transform(pokes[corpse].off)
 			end
 		end
 	end
 
-
-	
 	-- No move items with actionID 8000
 	if item:getActionId() == NOT_MOVEABLE_ACTION then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)

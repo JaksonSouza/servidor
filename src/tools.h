@@ -35,6 +35,8 @@ struct ball{
 		uint32_t sucess;
 		uint32_t fail;
 		float rate;
+		uint32_t on;
+		uint32_t off;
 	};
 
 ball ballEffect(uint32_t ballType);

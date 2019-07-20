@@ -81,16 +81,40 @@ static uint32_t circularShift(int bits, uint32_t value)
 ball ballEffect(uint32_t ballType){
 	
 	ball x;
-
 	switch(ballType){
 	  	case 12660: //poke ball
 	  		x.goback = 71;
 	  		x.sucess = 72;
 	  		x.fail = 73;
 	  		x.rate = 0.1;
-  	break;
+	  		x.on = 12664;
+	  		x.off = 12665;
+  		break;
+  		case 12661: //great ball
+	  		x.goback = 74;
+	  		x.sucess = 75;						
+	  		x.fail = 76;
+	  		x.rate = 0.2;
+	  		x.on = 12666;
+	  		x.off = 12667;
+  		break;
+  		case 12662: //super ball
+	  		x.goback = 77;
+	  		x.sucess = 78;
+	  		x.fail = 79;
+	  		x.rate = 0.3;
+	  		x.on = 12668;
+	  		x.off = 12669;
+  		break;
+  		case 12663: //ultra ball
+	  		x.goback = 80;
+	  		x.sucess = 81;
+	  		x.fail = 82;
+	  		x.rate = 0.4;
+	  		x.on = 12670;
+	  		x.off = 12671;
+  		break;
 	}
-
 	return x;
 }
 

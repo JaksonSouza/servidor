@@ -910,6 +910,7 @@ CMakeFiles/tfs.dir/src/database.cpp.o
  /usr/include/x86_64-linux-gnu/sys/types.h
 CMakeFiles/tfs.dir/src/databasemanager.cpp.o
  /mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/configmanager.h
+ /mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/const.h
  /mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/database.h
  /mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/databasemanager.cpp
  /mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/databasemanager.h
@@ -918,6 +919,7 @@ CMakeFiles/tfs.dir/src/databasemanager.cpp.o
  /mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/luascript.h
  /mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/otpch.h
  /mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/position.h
+ /mnt/c/Users/Jakson/Desktop/servidor original/servidor/src/tools.h
  /usr/include/lua5.2/lauxlib.h
  /usr/include/lua5.2/lua.h
  /usr/include/lua5.2/lua.hpp

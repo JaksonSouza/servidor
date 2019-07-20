@@ -33,6 +33,7 @@
 #endif
 
 #include "database.h"
+#include "tools.h"
 #include "enums.h"
 #include "position.h"
 #include <boost/lexical_cast.hpp>
@@ -549,6 +550,7 @@ class LuaScriptInterface
 		static int luaGamePokemonGo(lua_State* L);
 		static int luaGamePokemonBack(lua_State* L);
 		static int luaGamePokemonCatch(lua_State* L);
+		static int luaGameBallGetAttr(lua_State* L);
 		static int luaGameCreateNpc(lua_State* L);
 		static int luaGameCreateTile(lua_State* L);
 

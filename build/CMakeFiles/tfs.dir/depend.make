@@ -909,6 +909,7 @@ CMakeFiles/tfs.dir/src/database.cpp.o: /usr/include/x86_64-linux-gnu/sys/sysmacr
 CMakeFiles/tfs.dir/src/database.cpp.o: /usr/include/x86_64-linux-gnu/sys/types.h
 
 CMakeFiles/tfs.dir/src/databasemanager.cpp.o: ../src/configmanager.h
+CMakeFiles/tfs.dir/src/databasemanager.cpp.o: ../src/const.h
 CMakeFiles/tfs.dir/src/databasemanager.cpp.o: ../src/database.h
 CMakeFiles/tfs.dir/src/databasemanager.cpp.o: ../src/databasemanager.cpp
 CMakeFiles/tfs.dir/src/databasemanager.cpp.o: ../src/databasemanager.h
@@ -917,6 +918,7 @@ CMakeFiles/tfs.dir/src/databasemanager.cpp.o: ../src/enums.h
 CMakeFiles/tfs.dir/src/databasemanager.cpp.o: ../src/luascript.h
 CMakeFiles/tfs.dir/src/databasemanager.cpp.o: ../src/otpch.h
 CMakeFiles/tfs.dir/src/databasemanager.cpp.o: ../src/position.h
+CMakeFiles/tfs.dir/src/databasemanager.cpp.o: ../src/tools.h
 CMakeFiles/tfs.dir/src/databasemanager.cpp.o: /usr/include/lua5.2/lauxlib.h
 CMakeFiles/tfs.dir/src/databasemanager.cpp.o: /usr/include/lua5.2/lua.h
 CMakeFiles/tfs.dir/src/databasemanager.cpp.o: /usr/include/lua5.2/lua.hpp
