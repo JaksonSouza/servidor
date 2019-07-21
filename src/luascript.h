@@ -799,6 +799,7 @@ class LuaScriptInterface
 		static int luaCreatureMove(lua_State* L);
 
 		static int luaCreatureGetZone(lua_State* L);
+		static int luaCreatureMoveTo(lua_State* L);
 
 		// Player
 		static int luaPlayerCreate(lua_State* L);

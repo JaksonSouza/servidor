@@ -2109,6 +2109,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Creature", "move", LuaScriptInterface::luaCreatureMove);
 
 	registerMethod("Creature", "getZone", LuaScriptInterface::luaCreatureGetZone);
+	registerMethod("Creature", "moveTo", LuaScriptInterface::luaCreatureMoveTo);
 
 	// Player
 	registerClass("Player", "Creature", LuaScriptInterface::luaPlayerCreate);
@@ -4259,6 +4260,8 @@ int LuaScriptInterface::luaGamePokemonCatch(lua_State* L)
         g_game.addMagicEffect(target->getPosition(), ballEffect(ballType).fail);
         player->sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE,"fail");		
     }
+
+    g_game.internalRemoveItem(corpse);
 			
 	return 1;
 }
@@ -7463,6 +7466,34 @@ int LuaScriptInterface::luaCreatureGetZone(lua_State* L)
 		lua_pushnil(L);
 	}
 	return 1;
+}
+
+int32_t LuaScriptInterface::luaCreatureMoveTo(lua_State* L)
+{
+    //creature:moveTo(pos)
+    Creature* creature = getUserdata<Creature>(L, 1);
+    if (!creature) {
+        lua_pushnil(L);
+        return 1;
+    }
+
+    const Position& position = getPosition(L, 2);
+
+    FindPathParams fpp;
+    fpp.minTargetDist = getNumber<int32_t>(L, 3, 0);
+    fpp.maxTargetDist = getNumber<int32_t>(L, 4, 1);
+    fpp.fullPathSearch = getBoolean(L, 5, fpp.fullPathSearch);
+    fpp.clearSight = getBoolean(L, 6, fpp.clearSight);
+    fpp.maxSearchDist = getNumber<int32_t>(L, 7, 150);
+
+    std::forward_list<Direction> dirList;
+    if (creature->getPathTo(position, dirList, fpp)) {
+        creature->hasFollowPath = true;
+        creature->startAutoWalk(dirList);
+        pushBoolean(L, true);
+    }
+    else { pushBoolean(L, false); }
+    return 1;
 }
 
 // Player

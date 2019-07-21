@@ -44,8 +44,8 @@ struct AStarNode {
 	int_fast32_t f;
 	uint16_t x, y;
 };
-
-static constexpr int32_t MAX_NODES = 512;
+//jakson
+static constexpr int32_t MAX_NODES = 1024;
 
 static constexpr int32_t MAP_NORMALWALKCOST = 10;
 static constexpr int32_t MAP_DIAGONALWALKCOST = 25;
